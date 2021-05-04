@@ -13,7 +13,7 @@ This example uses p5 preload function to create the classifier
 let classifier;
 // Model URL
 let imageModelURL = 'https://yz1095.github.io/imageai2/';
- 
+
 // Video
 let video;
 let flippedVideo;
@@ -29,7 +29,7 @@ function setup() {
   createCanvas(320, 320);
   // Create the video
 
-var constraints = {
+  var constraints = {
 
     audio: false,
 
@@ -50,6 +50,7 @@ var constraints = {
     //}
 
   };
+
 
 
   video = createCapture(constraints);
@@ -89,13 +90,9 @@ function gotResult(error, results) {
   // The results are in an array ordered by confidence.
   // console.log(results[0]);
   label = results[0].label;
-  ThunkableWebviewerExtension.postMessage();
+  ThunkableWebviewerExtension.postMessage(label);
+
 
   // Classifiy again!
   classifyVideo();
 }
-
-
-
-
-
